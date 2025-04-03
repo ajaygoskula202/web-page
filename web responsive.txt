@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .card {
+            background: #f4f4f4;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body ng-controller="MainController">
+    <div class="container">
+        <h1>Welcome to My Web App</h1>
+        <div class="card" ng-repeat="item in items">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('MainController', function($scope) {
+            $scope.items = [
+                { title: 'Item 1', description: 'This is the first item.' },
+                { title: 'Item 2', description: 'This is the second item.' },
+                { title: 'Item 3', description: 'This is the third item.' }
+            ];
+        });
+    </script>
+</body>
+</html>
